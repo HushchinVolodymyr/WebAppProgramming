@@ -47,12 +47,22 @@ func (rs *RouterService) InitializeRoutes() {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
-	
+
 	// Task2 Controller Routes (Handle POST request, other methods not allowed)
 	rs.mux.HandleFunc("/task2", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
 		case http.MethodPost:
 			Controllers.PostTask2Controller(w, r)
+		default:
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		}
+	})
+
+	// Task3 Controller Routes (Handle POST request, other methods not allowed)
+	rs.mux.HandleFunc("/task3", func(w http.ResponseWriter, r *http.Request) {
+		switch r.Method {
+		case http.MethodPost:
+			Controllers.PostTask3Controller(w, r)
 		default:
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
