@@ -1,12 +1,13 @@
 import Task1 from "@/components/blocks/task1/task1";
 import Task2 from "@/components/blocks/task2/task2";
 import Task3 from "@/components/blocks/task3/task3";
+import Task4 from "@/components/blocks/task4/task4";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function Home() {
   return (
     <main className={"flex flex-col items-center h-screen"}>
-      <Tabs defaultValue="task3" className="w-screen flex flex-col items-center">
+      <Tabs defaultValue="task4" className="w-screen flex flex-col items-center">
         <TabsList className={`mx-auto`}>
           <TabsTrigger value="task1">Task 1</TabsTrigger>
           <TabsTrigger value="task2">Task 2</TabsTrigger>
@@ -23,6 +24,9 @@ export default function Home() {
         </TabsContent>
         <TabsContent value="task3" className="w-full">
           <Task3 />
+        </TabsContent>
+        <TabsContent value="task4" className="w-full">
+          <Task4 />
         </TabsContent>
       </Tabs>
     </main>

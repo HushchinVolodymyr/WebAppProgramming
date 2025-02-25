@@ -67,6 +67,16 @@ func (rs *RouterService) InitializeRoutes() {
 			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		}
 	})
+
+	// Task4 Controller Routes (Handle POST request, other methods not allowed)
+	rs.mux.HandleFunc("/task4", func(w http.ResponseWriter, r *http.Request) {
+		switch r.Method {
+		case http.MethodPost:
+			Controllers.PostTask4Controller(w, r)
+		default:
+			http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		}
+	})
 }
 
 // GetHandler returns the handler for the RouterService
